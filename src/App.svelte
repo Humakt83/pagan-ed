@@ -1,13 +1,17 @@
 <script>
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+  import NewMap from './lib/menu/NewMap.svelte'
+  import Map from './lib/map/Map.svelte'
+
+  let mapSize = 32;
+
+  const handleNewMap = (event) => mapSize = event.detail.size
+
 </script>
 
 <main>
-  <img src={logo} alt="Svelte Logo" />
-  <h1>Hello world!</h1>
 
-  <Counter />
+  <NewMap on:newmap={handleNewMap}/>
+  <Map size={mapSize} />
 
   <p>
     Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
